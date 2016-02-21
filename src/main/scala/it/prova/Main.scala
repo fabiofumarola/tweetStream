@@ -28,5 +28,6 @@ object Main extends App {
   implicit val mat = ActorMaterializer()
 
   mongoSource.stream()
+    .map(b => b.size)
     .runForeach(println)
 }
